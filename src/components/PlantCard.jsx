@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./plantCard.scss";
+import cardStyles from "./PlantCard.module.scss";
 import PropTypes from "prop-types";
 
 const PlantCard = ({ plantName, latinName, imageUrl }) => {
@@ -14,23 +14,23 @@ const PlantCard = ({ plantName, latinName, imageUrl }) => {
   };
 
   return (
-    <div className="card">
+    <div className={cardStyles.card}>
       <h2>{plantName}</h2>
       <input
         type="text"
         placeholder="Name your plant"
         value={userPlantName}
         onChange={(e) => setUserPlantName(e.target.value)}
-        className="input"
+        className={cardStyles.card__input}
       />
-      <img src={imageUrl} alt={plantName} className="image" />
+      <img src={imageUrl} alt={plantName} className={cardStyles.card__image} />
       <p>
         <em>{latinName}</em>
       </p>
-      <button onClick={handleWatering} className="button">
+      <button onClick={handleWatering} className={cardStyles.button}>
         Track Watering
       </button>
-      <button onClick={handleTipsPopup} className="button">
+      <button onClick={handleTipsPopup} className={cardStyles.button}>
         Tips & Care
       </button>
     </div>

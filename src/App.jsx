@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import PlantCard from "./components/PlantCard";
 import genericPlant from "./assets/generic_plant.jpg";
+import plantContainer from "./components/PlantContainer.module.scss";
 
 const App = () => {
   const [plantData, setPlants] = useState([]);
@@ -22,19 +23,23 @@ const App = () => {
 
   return (
     <div className="App">
-      <h1>Plants</h1>
-      {Array.isArray(plantData) && plantData.length > 0 ? (
-        plantData.map((plant) => (
-          <PlantCard
-            key={plant.id}
-            plantName={plant.common_name}
-            latinName={plant.latin_name}
-            imageUrl={plant.image_url || genericPlant}
-          />
-        ))
-      ) : (
-        <p>Loading...</p>
-      )}
+      <div className={plantContainer.card}>
+        <h1>Plants</h1>
+        <div className={plantContainer.card__grid}>
+          {Array.isArray(plantData) && plantData.length > 0 ? (
+            plantData.map((plant) => (
+              <PlantCard
+                key={plant.id}
+                plantName={plant.common_name}
+                latinName={plant.latin_name}
+                imageUrl={plant.default_image?.small_url || genericPlant}
+              />
+            ))
+          ) : (
+            <p>Loading...</p>
+          )}
+        </div>
+      </div>
     </div>
   );
 };
