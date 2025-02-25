@@ -1,5 +1,5 @@
 import { useState } from "react";
-import cardStyles from "./PlantCard.module.scss";
+import cardStyles from "./plantCard.module.scss";
 import PropTypes from "prop-types";
 
 const PlantCard = ({ plantName, latinName, imageUrl }) => {

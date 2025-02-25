@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import PlantCard from "./components/PlantCard";
 import genericPlant from "./assets/generic_plant.jpg";
-import plantContainer from "./components/PlantContainer.module.scss";
+import plantContainer from "./components/plantContainer.module.scss";
 
 const App = () => {
   const [plantData, setPlants] = useState([]);
